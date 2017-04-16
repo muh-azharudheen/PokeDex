@@ -15,6 +15,7 @@
 		04BDE2961EA2915800CECD25 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 04BDE2951EA2915800CECD25 /* pokemon.csv */; };
 		04BDE2991EA2945400CECD25 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDE2981EA2945400CECD25 /* Pokemon.swift */; };
 		04BDE29C1EA29EB600CECD25 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BDE29B1EA29EB600CECD25 /* PokeCell.swift */; };
+		04F1C1EC1EA318AA00AA4C62 /* csv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1C1EB1EA318AA00AA4C62 /* csv.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		04BDE2951EA2915800CECD25 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		04BDE2981EA2945400CECD25 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		04BDE29B1EA29EB600CECD25 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
+		04F1C1EB1EA318AA00AA4C62 /* csv.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = csv.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				04BDE29A1EA29E7A00CECD25 /* New Group */,
 				0408CDA91EA282760096DB20 /* ViewController.swift */,
 				0408CDA71EA282760096DB20 /* AppDelegate.swift */,
+				04F1C1EB1EA318AA00AA4C62 /* csv.swift */,
 				0408CDAB1EA282760096DB20 /* Main.storyboard */,
 				04BDE2951EA2915800CECD25 /* pokemon.csv */,
 				0408CDAE1EA282760096DB20 /* Assets.xcassets */,
@@ -121,6 +124,7 @@
 				TargetAttributes = {
 					0408CDA31EA282760096DB20 = {
 						CreatedOnToolsVersion = 8.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -166,6 +170,7 @@
 				0408CDAA1EA282760096DB20 /* ViewController.swift in Sources */,
 				0408CDA81EA282760096DB20 /* AppDelegate.swift in Sources */,
 				04BDE2991EA2945400CECD25 /* Pokemon.swift in Sources */,
+				04F1C1EC1EA318AA00AA4C62 /* csv.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +294,7 @@
 		0408CDB71EA282760096DB20 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = PokeDex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xerox.PokeDex;
@@ -301,7 +306,7 @@
 		0408CDB81EA282760096DB20 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = PokeDex/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = xerox.PokeDex;

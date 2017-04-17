@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--PokeDex-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PokeDex" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,21 +19,23 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-Ky-GGl">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Search Pokemon" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X4h-Ky-GGl">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="yrq-iv-hXh"/>
                                 </constraints>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </searchBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Tqa-Jb-6jz">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nBu-fs-wgV">
-                                <rect key="frame" x="20" y="128" width="335" height="519"/>
+                                <rect key="frame" x="20" y="64" width="335" height="519"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tTc-vQ-Jwn">
                                     <size key="itemSize" width="106" height="136"/>
@@ -58,7 +60,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Charmendor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rc7-YS-Duq">
                                                     <rect key="frame" x="0.0" y="106" width="106" height="30"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.58823529411764708" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" name="KohinoorDevanagari-Semibold" family="Kohinoor Devanagari" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
@@ -102,26 +104,55 @@
                             <constraint firstItem="Tqa-Jb-6jz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="r1k-7P-FWa"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5Xd-H0-ddM"/>
+                    <navigationItem key="navigationItem" title="PokeDex" id="5Xd-H0-ddM"/>
                     <connections>
                         <outlet property="collectionSearchBar" destination="X4h-Ky-GGl" id="qhf-iT-fZz"/>
                         <outlet property="pokeCollectionView" destination="nBu-fs-wgV" id="fPV-pX-RTw"/>
+                        <segue destination="zXj-Ig-5E2" kind="show" id="Lf7-M6-vY4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="985" y="-544"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="mIU-pQ-dQu">
+            <objects>
+                <viewController id="zXj-Ig-5E2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P4g-fe-xtn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cg0-i3-9gO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uvY-pT-wg3">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yfg-Sy-a4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1827" y="-537"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="7ef-Id-9Xl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0P1-Ek-Sgh" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0P1-Ek-Sgh" customClass="NavigationController" customModule="PokeDex" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ef0-um-WVA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="Ef0-um-WVA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.0" green="0.58823529411764708" blue="0.53333333333333333" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="5FH-64-pXk">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Yzf-X1-vA0"/>
                     </connections>

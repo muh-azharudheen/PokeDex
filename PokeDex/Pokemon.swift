@@ -15,13 +15,25 @@ class Pokemon{
     private var _name :String!
     private var _pokedexId:Int!
     private var description:String!
-    private var type :String!
+    private var _type :String!
     private var _defense:String!
     private var _height:String!
     private var _weight:String!
     private var _baseAttack:String!
     private var nextEvolutionText:String!   
     private var _pokemonURL:String!
+    
+    
+    
+    var type:String{
+        
+        if _type == nil {
+            
+            _type = ""
+            
+        }
+        return _type
+    }
     
     
     var name:String{
@@ -105,6 +117,38 @@ class Pokemon{
                 print(self._defense)
                 print(self._baseAttack)
                 
+                
+                if let types = Dict["types"] as? [Dictionary<String,String>], types.count > 0{
+                    
+                    
+                    let name = types[0] ["name"]
+                    self._type = name?.capitalized
+                    
+                    if types.count>1{
+                        
+                        for x in 1..<types.count{
+                            
+                            if let name = types[x]["name"] {
+                                
+                                self._type! += " /\(name.capitalized)"
+                                
+                            }
+                            
+                        }
+                        
+                        
+                        
+                    }
+                    
+                    
+                } else {
+                    
+                    self._type = ""
+                    
+                }
+                    
+               
+            
                 
             }
             completed()

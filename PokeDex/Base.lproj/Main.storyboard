@@ -330,9 +330,12 @@
                     </view>
                     <connections>
                         <outlet property="baseAttackLbl" destination="Huo-eK-QMF" id="b0Q-Ne-soQ"/>
+                        <outlet property="currentImg" destination="fJU-LU-9JE" id="qSi-WK-37k"/>
                         <outlet property="defenseLbl" destination="6H2-Fs-OX9" id="TW9-Jg-fTC"/>
                         <outlet property="heightLbl" destination="mUG-iN-iDQ" id="W3P-KH-PPk"/>
                         <outlet property="idLbl" destination="6X7-1D-FhH" id="4zW-vD-z0T"/>
+                        <outlet property="mainImg" destination="u6w-Ar-lrA" id="WAL-v5-87s"/>
+                        <outlet property="typeLbl" destination="cnZ-od-ZQR" id="5Pg-3H-EVv"/>
                         <outlet property="weightLbl" destination="gxE-g3-Wmj" id="EDf-M1-HWd"/>
                     </connections>
                 </viewController>

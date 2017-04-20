@@ -12,6 +12,7 @@ class PokeDetailVC: UIViewController {
 
     var detailedPokemon:Pokemon!
     
+    @IBOutlet weak var typeLbl: UILabel!
     
     @IBOutlet weak var mainImg: UIImageView!
     
@@ -25,12 +26,21 @@ class PokeDetailVC: UIViewController {
 
     @IBOutlet weak var baseAttackLbl: UILabel!
     
+
+    @IBOutlet weak var currentImg: UIImageView!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        
+        let img = UIImage(named: "\(detailedPokemon.pokedexId)")
+        
+        
+        mainImg.image = img
+        currentImg.image = img
 
       
         self.navigationItem.title = detailedPokemon.name
@@ -51,5 +61,6 @@ class PokeDetailVC: UIViewController {
         weightLbl.text = detailedPokemon.weight
         defenseLbl.text = detailedPokemon.defense
         baseAttackLbl.text = detailedPokemon.baseAttack
+        typeLbl.text = detailedPokemon.type
     }
 }

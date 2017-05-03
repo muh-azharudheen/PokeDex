@@ -14,7 +14,7 @@ class Pokemon{
     
     private var _name :String!
     private var _pokedexId:Int!
-    private var description:String!
+    private var _description:String!
     private var _type :String!
     private var _defense:String!
     private var _height:String!
@@ -73,7 +73,14 @@ class Pokemon{
         }
         return _baseAttack
     }
-    
+    var description:String{
+        
+        if _description == nil{
+            
+            _description = ""
+        }
+        return _description
+    }
     
     
     
@@ -145,6 +152,46 @@ class Pokemon{
                     
                     self._type = ""
                     
+                }
+                
+                if let descArr = Dict["descriptions"] as? [Dictionary<String,AnyObject>] , descArr.count > 0 {
+                    
+                    
+                    if let resourceURL = descArr[0] ["resource_uri"]{
+                        
+                        let url = "\(BASE_URL)\(resourceURL)"
+                        
+                        
+                        Alamofire.request(url).responseJSON(completionHandler: { (response) in
+                            
+                            if let descDict = response.result.value as? Dictionary<String,AnyObject>{
+                                
+                                
+                                if let description = descDict["description"] as? String{
+                                    
+                                    
+                                    let newDescription = description.replacingOccurrences(of: "POKMON", with: "PokeMon")
+                                    
+                                    
+                                    self._description = newDescription
+                                    
+                                    
+                                    
+                                }
+                                
+                            }
+
+                            
+                            completed()
+                            
+                            
+                        })
+                        
+                    } else {
+                        
+                        self._description = ""
+                        
+                    }
                 }
                     
                

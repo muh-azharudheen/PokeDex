@@ -29,6 +29,11 @@ class PokeDetailVC: UIViewController {
 
     @IBOutlet weak var currentImg: UIImageView!
     
+    @IBOutlet weak var lblDescription:UILabel!
+    
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -43,7 +48,7 @@ class PokeDetailVC: UIViewController {
         currentImg.image = img
 
       
-        self.navigationItem.title = detailedPokemon.name
+        self.navigationItem.title = detailedPokemon.name.capitalized
         
         
         detailedPokemon.downloadPokemonDetail {
@@ -62,5 +67,6 @@ class PokeDetailVC: UIViewController {
         defenseLbl.text = detailedPokemon.defense
         baseAttackLbl.text = detailedPokemon.baseAttack
         typeLbl.text = detailedPokemon.type
+        lblDescription.text = detailedPokemon.description
     }
 }

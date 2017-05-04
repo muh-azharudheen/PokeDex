@@ -31,6 +31,13 @@ class PokeDetailVC: UIViewController {
     
     @IBOutlet weak var lblDescription:UILabel!
     
+    @IBOutlet weak var nextEvoImage:UIImageView!
+    
+    @IBOutlet weak var lblNextEvolutions:UILabel!
+    
+    
+    
+    
     
     
     
@@ -68,5 +75,24 @@ class PokeDetailVC: UIViewController {
         baseAttackLbl.text = detailedPokemon.baseAttack
         typeLbl.text = detailedPokemon.type
         lblDescription.text = detailedPokemon.description
-    }
+        
+        if detailedPokemon.nextEvolutionId == ""{
+        
+        lblNextEvolutions.text = " No Evolutions"
+        nextEvoImage.isHidden = true
+    
+        } else {
+            nextEvoImage.isHidden = false
+            nextEvoImage.image = UIImage(named: detailedPokemon.nextEvolutionId)
+            
+            let str = "NEXT EVOLUTION: \(detailedPokemon.nextEvolutionName) LEVEL \(detailedPokemon.nextEvolutionLevel)"
+            
+            lblNextEvolutions.text = str
+            
+        }
+}
+
+
+
+
 }

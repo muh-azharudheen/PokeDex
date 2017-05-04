@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout ,UISearchBarDelegate,UISearchControllerDelegate,UITextFieldDelegate{
     
@@ -14,11 +15,14 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     @IBOutlet weak var pokeCollectionView:UICollectionView!
     @IBOutlet weak var collectionSearchBar:UISearchBar!
     
+    @IBOutlet weak var musicBtn: UIBarButtonItem!
     
     
     var pokemon = [Pokemon]()
     var inSearchmode:Bool!
     var filteredPokemon = [Pokemon]()
+    
+    var muscicPlayer:AVAudioPlayer!
     
     
     
@@ -29,15 +33,49 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         self.collectionSearchBar.delegate = self
         
         parsePokemonCSV()
+        initAudio()
         
         inSearchmode = false
         collectionSearchBar.returnKeyType = .done
+        
+        
      //   collectionSearchBar.showsCancelButton = false
        
       
     }
+    
+    func initAudio(){
+        
+        let path = Bundle.main.path(forResource: "music", ofType: "mp3")!
+        
+        do {
+            
+            muscicPlayer = try AVAudioPlayer(contentsOf: URL(string: path)!)
+            muscicPlayer.prepareToPlay()
+            muscicPlayer.numberOfLoops = -1
+            muscicPlayer.play()
+            
+            
+        } catch let err as NSError{
+            
+            print(err.debugDescription)
+            
+        }
+        
+    }
+    
+    func playAudio(){
+        
+        
+    }
+    
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
+        
+        
+        searchBar.text = ""
+        inSearchmode = false
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -178,4 +216,57 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
     }
 }
 
+    @IBAction func musicButtonPressed(_ sender: Any) {
+        
+        
+        
+        if muscicPlayer.isPlaying{
+            
+            muscicPlayer.pause()
+            
+        } else {
+            
+            muscicPlayer.play()
+            
+        }
+        
+        
+        
+        
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

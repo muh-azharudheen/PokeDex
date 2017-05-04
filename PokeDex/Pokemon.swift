@@ -20,8 +20,57 @@ class Pokemon{
     private var _height:String!
     private var _weight:String!
     private var _baseAttack:String!
-    private var nextEvolutionText:String!   
+    private var _nextEvolutionText:String!
+    private var _nextEvolutionName:String!
+    private var _nextEvolutionId:String!
+    private var _nextEvolutionLevel:String!
     private var _pokemonURL:String!
+    
+    
+    
+    var nextEvolutionName:String{
+        
+        if _nextEvolutionName ==  nil{
+            
+            _nextEvolutionName = ""
+            
+        }
+        return _nextEvolutionName
+    }
+    
+    var nextEvolutionText:String{
+        
+        if _nextEvolutionText == nil {
+            
+            _nextEvolutionText = ""
+        }
+        
+        return _nextEvolutionText
+    }
+    
+    
+    var nextEvolutionId:String{
+        
+        if _nextEvolutionId == nil{
+            
+            _nextEvolutionId = ""
+            
+        }
+        return _nextEvolutionId
+        
+    }
+    
+    var nextEvolutionLevel:String{
+        
+        if _nextEvolutionLevel == nil {
+            
+            _nextEvolutionLevel = ""
+            
+        }
+        
+        return _nextEvolutionLevel
+    }
+    
     
     
     
@@ -194,7 +243,54 @@ class Pokemon{
                     }
                 }
                     
-               
+                if let evolutions = Dict["evolutions"] as? [Dictionary<String,AnyObject>] , evolutions.count > 0{
+                    
+                    if let nextEvo = evolutions[0]["to"] as? String{
+                        
+                        
+                        if nextEvo.range(of: "mega") == nil {
+                            
+                            
+                            self._nextEvolutionName = nextEvo
+                            
+                            if let uri = evolutions[0]["resource_uri"] as? String {
+                                
+                                let newStr = uri.replacingOccurrences(of: "/api/v1/pokemon/", with: "")
+                                
+                                let nextEvoID = newStr.replacingOccurrences(of: "/", with: "")
+                                
+                                self._nextEvolutionId = nextEvoID
+                                
+                                
+                                if let levelExist = evolutions[0]["level"]{
+                                    
+                                    
+                                    if let level = levelExist as? Int{
+                                        
+                                        
+                                        self._nextEvolutionLevel = "\(level)"
+                                    } else {
+                                        
+                                        self._nextEvolutionLevel = ""
+                                        
+                                    }
+                                }
+                                
+                                
+                            }
+
+                        }
+                        
+                        
+                        
+                        
+                    }
+                    
+    
+                    
+                    
+                    
+                }
             
                 
             }
